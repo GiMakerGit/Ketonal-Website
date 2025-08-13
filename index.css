@@ -14,6 +14,38 @@
     
 }
 
+.ipbox {
+    border: 2px solid #757575;
+    border-radius: 8px;
+    display: flex;
+    padding-left: 10px;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-right: 10px;
+}
+
+.ip {
+    font-family: Inter, sans-serif;
+    color: #515151;
+    font-size: 16px;
+    margin-left: 15px;
+    
+}
+
+.copy-button {
+    background-color: #ffffff00;
+    color: white;
+    border: none;
+    padding-top: 3px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.copy-icon {
+    opacity: 0.5;
+}
+
 .logo {
     display: inline-block;
     vertical-align: middle;
@@ -79,6 +111,7 @@ body {
   font-weight: 500;
   font-size: 48px;
   letter-spacing: 20px;
+  left: 6px;
   user-select: none;
 }
 
@@ -101,7 +134,7 @@ body {
 
 @keyframes move2 {
     0% { transform: translateX(0); }
-    100% { transform: translate(-300px, 150px); width: 300px; height: 300px; }
+    100% { transform: translate(-275px, 150px); width: 300px; height: 300px; }
 }
 
 @keyframes move3 {
@@ -135,7 +168,7 @@ body {
 
 @keyframes move4 {
     0% { transform: translateX(0); opacity: 1; width: 0px;}
-    100% { width: 300px; height: 20px; opacity: 0.7; transform: translate(-300px, -20px);}
+    100% { width: 150px; height: 75px; opacity: 0.7; transform: translate(-400px, -50px);}
 }
 
 .media4 {
@@ -150,6 +183,11 @@ body {
     animation-timeline: scroll(root block);
 }
 
+@keyframes move5 {
+    0% { width: 0px; height: 0;}
+    100% { width: 300px; height: 100px;}
+}
+
 .media5 {
     position: absolute;
     display: block;
@@ -158,6 +196,14 @@ body {
     border-radius: 16px;
     overflow: hidden;
     object-fit: cover;
+    color: white;
+    animation: move5 ease-out forwards;
+    animation-timeline: scroll(root block);
+}
+
+@keyframes move6 {
+    0% { width: 0px; height: 0;}
+    100% { width: 100px; height: 100px; transform: translate(-125px, -125px); opacity: 0.5;}
 }
 
 .media6 {
@@ -168,6 +214,8 @@ body {
     border-radius: 16px;
     overflow: hidden;
     object-fit: cover;
+    animation: move6 cubic-bezier(0,.53,.58,.98) forwards;
+    animation-timeline: scroll(root block);
 }
 
 .media7 {
@@ -188,4 +236,30 @@ body {
     border-radius: 16px;
     overflow: hidden;
     object-fit: cover;
+}
+
+.description {
+    position: relative;
+    top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.description-text {
+    font-family: Inter;
+    color: #8b8b8b;
+    text-align: center;
+    width: 100%;
+}
+
+hr.solid {
+  border-top: 3px solid #ecebeb;
+  width: 100%;
 }
