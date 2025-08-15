@@ -17,37 +17,37 @@
 
 }
 
-.ipbox {
-    border: 2px solid #000000;
-    border-radius: 8px;
-    display: flex;
-    margin-right: 10px;
-    padding-top: 2px;
-    align-items: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
+/*.ipbox {*/
+/*    border: 2px solid #000000;*/
+/*    border-radius: 8px;*/
+/*    display: flex;*/
+/*    margin-right: 10px;*/
+/*    padding-top: 2px;*/
+/*    align-items: center;*/
+/*    margin-top: 10px;*/
+/*    margin-bottom: 10px;*/
+/*}*/
 
-.ip {
-    font-family: Inter, sans-serif;
-    color: #000000;
-    font-size: 25px;
-    margin-left: 15px;
+/*.ip {*/
+/*    font-family: Inter, sans-serif;*/
+/*    color: #000000;*/
+/*    font-size: 25px;*/
+/*    margin-left: 15px;*/
 
-}
+/*}*/
 
-.copy-button {
-    background-color: rgba(0, 0, 0, 0);
-    color: #000000;
-    border: none;
-    padding-top: 3px;
-    border-radius: 4px;
-    cursor: pointer;
-}
+/*.copy-button {*/
+/*    background-color: rgba(0, 0, 0, 0);*/
+/*    color: #000000;*/
+/*    border: none;*/
+/*    padding-top: 3px;*/
+/*    border-radius: 4px;*/
+/*    cursor: pointer;*/
+/*}*/
 
-.copy-icon {
-    opacity: 0.5;
-}
+/*.copy-icon {*/
+/*    opacity: 0.5;*/
+/*}*/
 
 .logo {
     display: inline-block;
@@ -284,6 +284,7 @@ body {
 }
 
 /*created by snaplk*/
+/*footer styles*/
 .description {
     position: relative;
     top: 20px;
@@ -393,3 +394,97 @@ hr.solid {
 .social-btn:hover path {
     fill: white;
 }
+/*end*/
+/*ip-box beg*/
+.ip-box {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(145deg, #78abf3, #104ef3);
+    border: 2px solid rgba(0, 23, 255, 0.3);
+    border-radius: 16px;
+    padding: 10px 18px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+
+.ip-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(9, 233, 239, 0.98);
+    border-color: rgba(7, 224, 183, 0.98);
+}
+
+.ip-text {
+    color: #f0f0f0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-right: 15px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.copy-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(9, 63, 241, 0.89);
+    transition: all 0.3s ease;
+}
+
+.copy-icon i {
+    color: #f0f0f0;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.ip-box:hover .copy-icon {
+    background: rgba(13, 245, 245, 0.4);
+    transform: rotate(-5deg);
+}
+
+.success .copy-icon {
+    background: #10b981;
+    transform: scale(1.1);
+}
+
+.success .copy-icon i {
+    color: white;
+}
+
+.pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.4), transparent);
+    top: 0;
+    left: 0;
+    border-radius: 16px;
+    animation: pulse 0.6s ease-out;
+    opacity: 0;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+}
+
+.ip-box:hover .tooltip {
+    opacity: 1;
+}
+
+/*end*/
