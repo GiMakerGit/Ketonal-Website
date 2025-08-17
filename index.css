@@ -34,9 +34,6 @@
         inset 0 0 8px 1px rgba(255, 255, 255, 0.7);
 }
 
-
-}
-
 /*.ipbox {*/
 /*    border: 2px solid #000000;*/
 /*    border-radius: 8px;*/
@@ -241,7 +238,6 @@ body {
     }
     100% {
         width: 320px;
-        width: 300px
         height: 100px;
     }
 }
