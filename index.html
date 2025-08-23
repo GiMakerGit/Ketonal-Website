@@ -23,15 +23,27 @@
 
 <body>
 <header class="header">
-    <div class="logo">
-        <img src="/src/ketonal.png" alt="Ketonal Logo" class="logo-img">
-    </div>
-<!--    <div class="ip-box" id="ipBox">
-        <span class="ip-text">mc.ket0nal.ru</span>
-        <div class="copy-icon">
-            <i class="fas fa-copy"></i>
+    <div class="header-left">
+        <div class="logo">
+            <img src="/src/ketonal.png" alt="Ketonal Logo" class="logo-img">
         </div>
-    </div> -->
+
+        <nav class="nav-menu">
+            <a href="#" class="nav-link">О проекте</a>
+            <a href="#" class="nav-link">Вики</a>
+            <a href="#" class="nav-link">Новости</a>
+        </nav>
+    </div>
+
+    <div class="header-controls">
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
+        <button class="discord-login-btn" onclick="loginWithDiscord()">
+            <i class="fab fa-discord"></i>
+            <span>Войти</span>
+        </button>
+    </div>
 </header>
 <main>
     <section id="scroll-block">
@@ -69,22 +81,7 @@
         <hr class="solid">
     </div>
 </main>
-<script>
-    const ipBox = document.getElementById('ipBox');
-    const ipText = ipBox.querySelector('.ip-text');
-    ipBox.addEventListener('click', () => {
-        console.log(213)
-        navigator.clipboard.writeText(ipText.textContent);
-        ipBox.classList.add('success');
-        const pulse = document.createElement('div');
-        pulse.classList.add('pulse');
-        ipBox.appendChild(pulse);
-        setTimeout(() => {
-            ipBox.classList.remove('success');
-            pulse.remove();
-        }, 1500);
-    });
-</script>
+
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-left">

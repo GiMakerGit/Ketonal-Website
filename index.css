@@ -1,38 +1,19 @@
 /*©2025 Ketonal Project IT Group*/
 /*Created by GiMaker and snaplk*/
 
-/*©2025 Ketonal Project IT Group*/
-/*Created by GiMaker and snaplk*/
 
 .header {
     background-color: rgba(255, 255, 255, 0.783);
     backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.783);
-    backdrop-filter: blur(10px);
-    padding-left: 10px;
-    height: fit-content;
-    justify-content: space-between;
-    align-items: center;
-    height: fit-content;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    font-size: 24px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-
-
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-
-
+    padding: 0 20px;
+    height: 60px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 14px;
-    position: sticky;
-    position: sticky;
+    position: fixed;
     z-index: 2;
-    width: 90%;
-    top: 2%;
-    left: 5%;
-    border: white 1px solid;
     width: 90%;
     top: 2%;
     left: 5%;
@@ -50,45 +31,104 @@
         inset 0 0 8px 1px rgba(255, 255, 255, 0.7);
 }
 
-/*.ipbox {*/
-/*    border: 2px solid #000000;*/
-/*    border-radius: 8px;*/
-/*    display: flex;*/
-/*    margin-right: 10px;*/
-/*    padding-top: 2px;*/
-/*    align-items: center;*/
-/*    margin-top: 10px;*/
-/*    margin-bottom: 10px;*/
-/*}*/
-
-/*.ip {*/
-/*    font-family: Inter, sans-serif;*/
-/*    color: #000000;*/
-/*    font-size: 25px;*/
-/*    margin-left: 15px;*/
-
-/*}*/
-
-/*.copy-button {*/
-/*    background-color: rgba(0, 0, 0, 0);*/
-/*    color: #000000;*/
-/*    border: none;*/
-/*    padding-top: 3px;*/
-/*    border-radius: 4px;*/
-/*    cursor: pointer;*/
-/*}*/
-
-/*.copy-icon {*/
-/*    opacity: 0.5;*/
-/*}*/
-
-.logo {
-    display: inline-block;
-    vertical-align: middle;
-    margin-top: 5px;
-    border-radius: 8px;
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 0; /* Убираем промежуток между лого и навигацией */
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px;
+    width: 40px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+    margin-left: 20px; /* Небольшой отступ от логотипа */
+}
+
+.nav-link {
+    color: #515151;
+    text-decoration: none;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 8px 0;
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    color: #000;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #5865F2;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #515151;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #000;
+}
+
+.discord-login-btn {
+    background-color: #5865F2;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+    height: 40px;
+}
+
+.discord-login-btn:hover {
+    background-color: #4752c4;
+}
 body {
     font-family: Inter, sans-serif;
     line-height: 1.6;
