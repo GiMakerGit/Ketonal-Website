@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap"
@@ -29,7 +29,7 @@
         </div>
 
         <nav class="nav-menu">
-            <a href="#" class="nav-link">О проекте</a>
+            <a href="#about" class="nav-link">О проекте</a>
             <a href="#" class="nav-link">Вики</a>
             <a href="#" class="nav-link">Новости</a>
         </nav>
@@ -45,48 +45,37 @@
         </button>
     </div>
 </header>
-<main>
-    <section id="scroll-block">
-        <div class="mediapreview">
 
-            <div class="media1">
-                <img src="/src/1.png" alt="Screenshot of ketonal" class="bg" height="300px">
+<main class="main-content">
+    <section class="hero-section">
+        <h1 class="hero-title">KETONAL</h1>
+        <p class="hero-subtitle">Уникальный Minecraft сервер с дружным сообществом и т.д</p>
+        <div class="server-ip">ket0nal.online</div>
+    </section>
+
+
+    <section class="about-section" id = "about">
+        <h2 class="section-title">О проекте</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Добро пожаловать на Ketonal — уникальный Minecraft сервер, созданный с любовью к игре и
+                    комьюнити!</p>
+                <p>Наш сервер предлагает эксклюзивный игровой опыт с кастомными модами, тщательно проработанным лором и
+                    регулярными ивентами.</p>
+                <p>Мы стремимся создать дружелюбное и welcoming сообщество, где каждый игрок может найти себе занятие по
+                    душе: от строительства величественных замков до захватывающих PVP-сражений.</p>
+                <p>Присоединяйся к нам и стань частью этой удивительной вселенной!</p>
+
             </div>
-            <div class="media2">
-                <img src="/src/2.png" alt="Screenshot of ketonal" class="bg" height="300px">
-            </div>
-            <div class="media3">
-                <img src="/src/3.png" alt="Screenshot of ketonal" class="bg" height="300px">
-            </div>
-            <div class="media4">
-                <img src="/src/4.png" alt="Screenshot of ketonal" class="bg" height="300px">
-            </div>
-            <div class="media5">
-                <img src="/src/5.png" alt="Screenshot of ketonal" class="bg" height="300px">
-            </div>
-            <div class="media6">
-                <img src="/src/6.png" alt="Screenshot of ketonal" class="bg" height="300px">
-            </div>
-            <div class="media7">
-                <img src="/src/7.png" alt="Screenshot of ketonal" class="bg" height="300px">
-            </div>
-            <div class="media8">
-                <img src="/src/8.png" alt="Screenshot of ketonal" class="bg" height="300px">
-            </div>
-            <span class="mediaketonal">Ketonal</span>
         </div>
     </section>
-    <div class="description">
-        <span class="description-text">Майнкрафт сервер</span>
-        <hr class="solid">
-    </div>
 </main>
 
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-left">
             <div class="logo">
-                © 2025 Kentonal Project
+                © 2025 Ketonal Project
             </div>
             <div class="disclaimer">
                 Мы никак не связаны с Minecraft®, Mojang Studios® или Microsoft®.
@@ -108,5 +97,24 @@
     </div>
 </footer>
 
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+</script>
 </body>
 </html>
