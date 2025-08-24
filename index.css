@@ -1,14 +1,39 @@
 /*©2025 Ketonal Project IT Group*/
 /*Created by GiMaker and snaplk*/
-
+html{
+    overflow: auto;
+}
 body {
     font-family: Inter, sans-serif;
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    color: #333;
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+
 }
+
+.container{
+    margin-left: 20px;
+    margin-right: 20px;
+    height: fit-content;
+    Display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    transition: opacity 1.2s ease;
+    filter: blur(0%);
+}
+
+
 
 .header {
     background-color: rgba(255, 255, 255, 0.783);
@@ -149,32 +174,23 @@ body {
 
 
 .hero-section {
+    align-items: center;
     text-align: center;
     padding: 60px 0;
-    background: linear-gradient(135deg, #6a5acd 0%, #5865F2 100%);
     border-radius: 18px;
     color: white;
     margin-bottom: 40px;
     position: relative;
     overflow: hidden;
+    height: 700px;
 }
 
-.hero-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="rgba(255,255,255,0.1)" x="0" y="0" width="50" height="50"/><rect fill="rgba(255,255,255,0.1)" x="50" y="50" width="50" height="50"/></svg>');
-    background-size: 50px 50px;
-    opacity: 0.3;
-}
+
 
 .hero-title {
+    margin-top: 150px;
     font-family: 'Archivo Black', sans-serif;
     font-size: 3.5rem;
-    margin-bottom: 20px;
     text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
     letter-spacing: 2px;
 }
@@ -182,7 +198,7 @@ body {
 .hero-subtitle {
     font-size: 1.5rem;
     max-width: 800px;
-    margin: 0 auto 30px;
+    margin: 0 auto;
     font-weight: 300;
 }
 
@@ -651,3 +667,4 @@ hr.solid {
 }
 
 /*end*/
+
