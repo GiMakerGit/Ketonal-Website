@@ -174,11 +174,11 @@ body {
 
 .main-content {
     padding-top: 100px;
-    width: 93%;
+    width: 95%;
     margin: 0 auto;
     align-items: center;
     position: relative;
-    left: 20px
+
 }
 
 
@@ -191,7 +191,7 @@ body {
     margin-bottom: 40px;
     position: relative;
     overflow: hidden;
-    height: 700px;
+    height: 50vw
 }
 
 
