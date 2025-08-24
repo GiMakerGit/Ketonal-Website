@@ -210,30 +210,27 @@ body {
     font-weight: 300;
 }
 
-.about-section {
-    background: rgba(0, 0, 0, 0.6);
+.play-section {
+    background-color: rgba(255, 255, 255, 0.783);
     backdrop-filter: blur(10px);
     border-radius: 14px;
     padding: 40px;
     margin-bottom: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: white 1px solid;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
 }
 
-.about-section::before {
+.play-section::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    transparent
-    );
+    box-shadow: inset 6px 6px 0px -6px rgba(255, 255, 255, 0.7),
+    inset 0 0 8px 1px rgba(255, 255, 255, 0.7);
 }
 
 .section-title {
@@ -259,15 +256,14 @@ body {
     border-radius: 2px;
 }
 
-.about-text {
+.play-text {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.9);
+    color: #515151;
     text-align: center;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.about-content {
+.play-content {
     display: flex;
     gap: 30px;
     align-items: center;
@@ -505,6 +501,7 @@ hr.solid {
 .mtop-10 {
     margin-top: 10px;
 }
+
 .footer {
     background-color: #ffffff;
     padding: 30px 40px;
@@ -819,7 +816,6 @@ hr.solid {
 }
 
 
-
 .timeline-item h3 {
     color: #5865F2;
     margin-bottom: 15px;
@@ -886,7 +882,7 @@ hr.solid {
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
-    z-index: 2;
+    z-index: 0;
     border: 2px solid transparent;
 }
 
