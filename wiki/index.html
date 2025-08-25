@@ -10,8 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../index.css">
     <style>
+
         .wiki-container {
             display: flex;
             gap: 30px;
@@ -29,10 +30,20 @@
             height: fit-content;
             position: sticky;
             top: 100px;
+            color: #000000;
         }
 
         .wiki-content {
             flex: 1;
+            color:#000000;
+        }
+
+        .wiki-content li:before {
+            content: "•";
+            color: #19bb9d;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
         }
 
         .wiki-nav {
@@ -55,7 +66,7 @@
 
         .wiki-nav-link:hover, .wiki-nav-link.active {
             background-color: rgba(88, 101, 242, 0.1);
-            color: #5865F2;
+            color: #19bb9d;
         }
 
         .wiki-section {
@@ -69,7 +80,7 @@
         }
 
         .wiki-section h2 {
-            color: #5865F2;
+            color: #19bb9d;
             margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 2px solid #f0f0f0;
@@ -97,7 +108,7 @@
 
         .wiki-table th {
             background-color: rgba(88, 101, 242, 0.1);
-            color: #5865F2;
+            color: #19bb9d;
             font-weight: 600;
         }
 
@@ -133,7 +144,7 @@
 
         .rule-list li:before {
             content: "•";
-            color: #5865F2;
+            color: #19bb9d;
             font-weight: bold;
             position: absolute;
             left: 0;
@@ -162,7 +173,7 @@
     <video autoplay muted loop playsinline class="background-video">
         <source src="/src/background.mp4" type="video/mp4">
     </video>
-
+    <div class="container">
     <header class="header">
         <div class="header-left">
             <div class="logo">
@@ -170,7 +181,7 @@
             </div>
 
             <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Главная</a>
+                <a href="../index.html" class="nav-link">Главная</a>
                 <a href="wiki.html" class="nav-link active">Вики</a>
                 <a href="#" class="nav-link">Новости</a>
             </nav>
@@ -211,21 +222,24 @@
                     <p>Добро пожаловать на сервер Ketonal! Это уникальный Minecraft сервер с модификациями, где вы можете насладиться совершенно новым игровым опытом.</p>
 
                     <h3>Техническая информация</h3>
-                    <ul>
-                        <li><strong>Версия Minecraft:</strong> 1.20.1</li>
-                        <li><strong>Тип сервера:</strong> Модифицированный (Forge/Fabric)</li>
-                        <li><strong>Адрес сервера:</strong> mc.ketonal.ru</li>
-                        <li><strong>Дискорд:</strong> <a href="https://discord.gg/YtrczGpanH" style="color: #5865F2;">https://discord.gg/YtrczGpanH</a></li>
+                    <ul class="rule-list">
+                        <li><strong>Версия Minecraft:</strong> 1.21.5</li>
+                        <li><strong>Тип сервера:</strong> Ванильный (Purpur)</li>
+                        <li><strong>Адрес сервера:</strong> ket0nal.online</li>
+                        <li><strong>Дискорд:</strong> <a href="https://discord.gg/YtrczGpanH" style="color: #027f4b;">https://discord.gg/YtrczGpanH</a></li>
                     </ul>
 
                     <h3>Особенности сервера</h3>
-                    <p>На сервере реализованы уникальные механики, которые превращают ванильный Minecraft в нечто особенное:</p>
-                    <ul>
-                        <li>Кастомная система прокачки</li>
-                        <li>Уникальные способности и заклинания</li>
-                        <li>Глубокая экономическая система</li>
-                        <li>Собственный лор и история мира</li>
+                    <p>На сервере реализованы механики, которые превращают ванильный Minecraft в нечто особенное:</p>
+                    <ul class="rule-list">
+                        <li>Голосовой чат</li>
+                        <li>Запись музыки на пластинки и рога</li>
+                        <li>Воздушные лестницы</li>
+                        <li>Ремонт наковален</li>
+                        <li>Интерактив с ступеньками и лестницами</li>
+                        <li>Безплатное переименования предметов</li>
                         <li>Регулярные ивенты и соревнования</li>
+                        <li>Редактирование Арморстендов</li>
                     </ul>
                 </section>
 
@@ -336,7 +350,7 @@
                     <p>На сервере действует развитая экономическая система с несколькими валютами:</p>
 
                     <h3>Валюты</h3>
-                    <ul>
+                    <ul class="rule-list">
                         <li><strong>Кредиты</strong> - основная валюта, получается за выполнение квестов и продажу предметов</li>
                         <li><strong>Драконий жемчуг</strong> - редкая валюта, получается за победу над боссами</li>
                         <li><strong>Магические кристаллы</strong> - валюта для покупки магических предметов</li>
@@ -344,7 +358,7 @@
 
                     <h3>Торговля</h3>
                     <p>Игроки могут торговать между собой или использовать центральный рынок:</p>
-                    <ul>
+                    <ul class="rule-list">
                         <li>Личные торговые площадки на участках</li>
                         <li>Центральный рынок в столице (/warp market)</li>
                         <li>Аукцион редких предметов (проводится по выходным)</li>
@@ -352,7 +366,7 @@
 
                     <h3>Профессии</h3>
                     <p>Каждый игрок может освоить несколько профессий для заработка:</p>
-                    <ul>
+                    <ul class="rule-list">
                         <li>Шахтер - добыча редких руд</li>
                         <li>Фермер - выращивание сельскохозяйственных культур</li>
                         <li>Охотник - добыча ресурсов с мобов</li>
@@ -409,7 +423,7 @@
 
                     <h3>Донат-ранги</h3>
                     <p>Также доступны специальные ранги за поддержку сервера:</p>
-                    <ul>
+                    <ul class="rule-list">
                         <li><strong>Страж</strong> - дополнительные дома, приватные варпы</li>
                         <li><strong>Хранитель</strong> - увеличенный лимит предметов на рынке</li>
                         <li><strong>Архитектор</strong> - дополнительные права на строительство</li>
@@ -426,7 +440,7 @@
 
                     <h3>Энд</h3>
                     <p>Измерение Энда было значительно расширено и теперь содержит:</p>
-                    <ul>
+                    <ul class="rule-list">
                         <li>Новые виды эндерменов</li>
                         <li>Уникальные структуры</li>
                         <li>Драконьи логова с улучшенными драконами</li>
@@ -435,7 +449,7 @@
 
                     <h3>Ад</h3>
                     <p>Нетер также претерпел изменения:</p>
-                    <ul>
+                    <ul class="rule-list">
                         <li>Новые крепости с уникальными боссами</li>
                         <li>Вулканические биомы с особыми ресурсами</li>
                         <li>Заброшенные рудники и тюрьмы</li>
@@ -443,7 +457,7 @@
 
                     <h3>Карманные измерения</h3>
                     <p>Доступны через порталы, найденные в основном мире:</p>
-                    <ul>
+                    <ul class="rule-list">
                         <li>Сад Творения - измерение для строительства без ограничений</li>
                         <li>Лес Грибов - уникальный биом с гигантскими грибами</li>
                         <li>Кристальные пещеры - подземное измерение с кристаллическими образованиями</li>
@@ -456,7 +470,7 @@
 
                     <h3>Ежедневные квесты</h3>
                     <p>Доступны каждый день и дают небольшое количество награды:</p>
-                    <ul>
+                    <ul class="rule-list">
                         <li>Добыть определенные ресурсы</li>
                         <li>Победить конкретных мобов</li>
                         <li>Вырастить сельскохозяйственные культуры</li>
@@ -465,7 +479,7 @@
 
                     <h3>Еженедельные квесты</h3>
                     <p>Более сложные задания с улучшенными наградами:</p>
-                    <ul>
+                    <ul class="rule-list">
                         <li>Исследовать новые территории</li>
                         <li>Победить боссов</li>
                         <li>Создать сложные механизмы или предметы</li>
@@ -474,7 +488,7 @@
 
                     <h3>Сезонные события</h3>
                     <p>Проводятся в соответствии с реальными праздниками:</p>
-                    <ul>
+                    <ul class="rule-list">
                         <li>Хэллоуин - особые мобы и тематические подземелья</li>
                         <li>Рождество - подарки и зимние активности</li>
                         <li>Пасха - поиск яиц с сюрпризами</li>
@@ -483,7 +497,7 @@
 
                     <h3>PvP-турниры</h3>
                     <p>Регулярные соревнования между игроками:</p>
-                    <ul>
+                    <ul class="rule-list">
                         <li>Еженедельные арены - небольшие турниры с призами</li>
                         <li>Месячные чемпионаты - крупные события с ценными наградами</li>
                         <li>Командные сражения - групповые PvP-битвы</li>
@@ -518,7 +532,14 @@
             </div>
         </div>
     </footer>
-
+    <script>
+        window.addEventListener('scroll', function () {
+            const scrollPosition = window.scrollY;
+            const video = document.querySelector('.background-video');
+            const blurIntensity = scrollPosition >= 500 ? 16 : (scrollPosition / 500 * 16);
+            video.style.filter = `blur(${blurIntensity}px)`;
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const wikiSections = document.querySelectorAll('.wiki-section');
@@ -578,5 +599,6 @@
             });
         });
     </script>
+    </div>
 </body>
 </html>
