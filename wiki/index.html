@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вики - Ketonal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../index.css">
+    <style>
+
+        .wiki-container {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .wiki-sidebar {
+            flex: 0 0 280px;
+            background-color: rgba(255, 255, 255, 0.783);
+            backdrop-filter: blur(10px);
+            border-radius: 14px;
+            padding: 20px;
+            border: white 1px solid;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+            color: #000000;
+        }
+
+        .wiki-content {
+            flex: 1;
+            color:#000000;
+        }
+
+        .wiki-content li:before {
+            content: "•";
+            color: #19bb9d;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .wiki-nav {
+            list-style: none;
+        }
+
+        .wiki-nav-item {
+            margin-bottom: 10px;
+        }
+
+        .wiki-nav-link {
+            color: #515151;
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .wiki-nav-link:hover, .wiki-nav-link.active {
+            background-color: rgba(88, 101, 242, 0.1);
+            color: #19bb9d;
+        }
+
+        .wiki-section {
+            background-color: rgba(255, 255, 255, 0.783);
+            backdrop-filter: blur(10px);
+            border-radius: 14px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: white 1px solid;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .wiki-section h2 {
+            color: #19bb9d;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .wiki-section h3 {
+            color: #515151;
+            margin: 25px 0 15px;
+        }
+
+        .wiki-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .wiki-table th, .wiki-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .wiki-table th {
+            background-color: rgba(88, 101, 242, 0.1);
+            color: #19bb9d;
+            font-weight: 600;
+        }
+
+        .wiki-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .mod-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            background: linear-gradient(145deg, #dcfff5, #c1fff4);
+            border: 1px solid rgb(38, 255, 204);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 0 5px 5px 0;
+            color: #000;
+        }
+
+        .rule-category {
+            margin-bottom: 25px;
+        }
+
+        .rule-list {
+            list-style-type: none;
+        }
+
+        .rule-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .rule-list li:before {
+            content: "•";
+            color: #19bb9d;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .command-item {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .command-syntax {
+            font-family: monospace;
+            background: #f5f5f5;
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <video autoplay muted loop playsinline class="background-video">
+        <source src="/src/background.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="/src/ketonal.png" alt="Ketonal Logo" class="logo-img">
+            </div>
+
+            <nav class="nav-menu">
+                <a href="../index.html" class="nav-link">Главная</a>
+                <a href="wiki.html" class="nav-link active">Вики</a>
+                <a href="#" class="nav-link">Новости</a>
+            </nav>
+        </div>
+
+        <div class="header-controls">
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="discord-login-btn" onclick="loginWithDiscord()">
+                <i class="fab fa-discord"></i>
+                <span>Войти</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1 class="section-title">Вики по серверу Ketonal</h1>
+
+        <div class="wiki-container">
+            <aside class="wiki-sidebar">
+                <h3>Навигация</h3>
+                <ul class="wiki-nav">
+                    <li class="wiki-nav-item"><a href="#general" class="wiki-nav-link active">Общая информация</a></li>
+                    <li class="wiki-nav-item"><a href="#rules" class="wiki-nav-link">Правила сервера</a></li>
+                    <li class="wiki-nav-item"><a href="#mods" class="wiki-nav-link">Моды и плагины</a></li>
+                    <li class="wiki-nav-item"><a href="#commands" class="wiki-nav-link">Команды</a></li>
+                    <li class="wiki-nav-item"><a href="#economy" class="wiki-nav-link">Экономика</a></li>
+                    <li class="wiki-nav-item"><a href="#ranks" class="wiki-nav-link">Ранги и привилегии</a></li>
+                    <li class="wiki-nav-item"><a href="#worlds" class="wiki-nav-link">Миры и измерения</a></li>
+                    <li class="wiki-nav-item"><a href="#quests" class="wiki-nav-link">Квесты и события</a></li>
+                </ul>
+            </aside>
+
+            <div class="wiki-content">
+                <section id="general" class="wiki-section">
+                    <h2>Общая информация</h2>
+                    <p>Добро пожаловать на сервер Ketonal! Это уникальный Minecraft сервер с модификациями, где вы можете насладиться совершенно новым игровым опытом.</p>
+
+                    <h3>Техническая информация</h3>
+                    <ul class="rule-list">
+                        <li><strong>Версия Minecraft:</strong> 1.21.5</li>
+                        <li><strong>Тип сервера:</strong> Ванильный (Purpur)</li>
+                        <li><strong>Адрес сервера:</strong> ket0nal.online</li>
+                        <li><strong>Дискорд:</strong> <a href="https://discord.gg/YtrczGpanH" style="color: #027f4b;">https://discord.gg/YtrczGpanH</a></li>
+                    </ul>
+
+                    <h3>Особенности сервера</h3>
+                    <p>На сервере реализованы механики, которые превращают ванильный Minecraft в нечто особенное:</p>
+                    <ul class="rule-list">
+                        <li>Голосовой чат</li>
+                        <li>Запись музыки на пластинки и рога</li>
+                        <li>Воздушные лестницы</li>
+                        <li>Ремонт наковален</li>
+                        <li>Интерактив с ступеньками и лестницами</li>
+                        <li>Безплатное переименования предметов</li>
+                        <li>Регулярные ивенты и соревнования</li>
+                        <li>Редактирование Арморстендов</li>
+                    </ul>
+                </section>
+
+                <section id="rules" class="wiki-section">
+                    <h2>Правила сервера</h2>
+                    <p>Для поддержания дружелюбной атмосферы на сервере действуют следующие правила:</p>
+
+                    <div class="rule-category">
+                        <h3>Основные правила</h3>
+                        <ul class="rule-list">
+                            <li>Уважайте других игроков, не оскорбляйте и не провоцируйте конфликты</li>
+                            <li>Запрещен гриферство и воровство</li>
+                            <li>Не используйте читы и любые программы, дающие преимущество</li>
+                            <li>Не спамьте в чат и не используйте CAPS LOCK без необходимости</li>
+                            <li>Запрещена реклама других серверов и проектов</li>
+                        </ul>
+                    </div>
+
+                    <div class="rule-category">
+                        <h3>Строительство</h3>
+                        <ul class="rule-list">
+                            <li>Стройте на расстоянии не менее 100 блоков от других игроков</li>
+                            <li>Не стройте неприличные или оскорбительные сооружения</li>
+                            <li>Убирайте за собой лава-крейсеры и другие механизмы, если они не нужны</li>
+                            <li>Не используйте TNT и другие разрушающие блоки механизмы без согласия администрации</li>
+                        </ul>
+                    </div>
+
+                    <div class="rule-category">
+                        <h3>PvP правила</h3>
+                        <ul class="rule-list">
+                            <li>PvP разрешен только в специально отведенных зонах</li>
+                            <li>Запрещено убийство новичков (ранг до 5 уровня)</li>
+                            <li>Нельзя использовать баги для получения преимущества в PvP</li>
+                            <li>Разрешены дуэли по взаимному согласию</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="mods" class="wiki-section">
+                    <h2>Моды и плагины</h2>
+                    <p>На сервере установлены следующие моды, которые расширяют геймплей:</p>
+
+                    <h3>Основные моды</h3>
+                    <div class="mod-badge">JourneyMap</div>
+                    <div class="mod-badge">JEI (Just Enough Items)</div>
+                    <div class="mod-badge">Biomes O' Plenty</div>
+                    <div class="mod-badge">Tinkers' Construct</div>
+                    <div class="mod-badge">Botania</div>
+                    <div class="mod-badge">Thaumcraft</div>
+                    <div class="mod-badge">Ice and Fire: Dragons</div>
+
+                    <h3>Кастомные моды</h3>
+                    <p>Мы разработали собственные моды, которые можно найти только на нашем сервере:</p>
+
+                    <h4>Ketonal Magic</h4>
+                    <p>Добавляет систему заклинаний и магических способностей, которые можно изучать и улучшать.</p>
+
+                    <h4>Ketonal Skills</h4>
+                    <p>Система прокачки навыков, включая горное дело, земледелие, боевые искусства и ремесла.</p>
+
+                    <h4>Ancient Artifacts</h4>
+                    <p>Уникальные артефакты с особыми свойствами, которые можно найти в ходе исследований и приключений.</p>
+                </section>
+
+                <section id="commands" class="wiki-section">
+                    <h2>Команды сервера</h2>
+                    <p>На сервере доступны следующие команды для удобства игроков:</p>
+
+                    <div class="command-item">
+                        <div class="command-syntax">/home [название]</div>
+                        <p>Телепортироваться на один из ваших домашних точек. Базовый лимит: 3 дома.</p>
+                    </div>
+
+                    <div class="command-item">
+                        <div class="command-syntax">/sethome [название]</div>
+                        <p>Установить домашнюю точку в вашем текущем местоположении.</p>
+                    </div>
+
+                    <div class="command-item">
+                        <div class="command-syntax">/warp [название]</div>
+                        <p>Телепортироваться к общедоступным варпам (города, ивент-зоны и т.д.).</p>
+                    </div>
+
+                    <div class="command-item">
+                        <div class="command-syntax">/tpa [ник]</div>
+                        <p>Запросить телепортацию к другому игроку.</p>
+                    </div>
+
+                    <div class="command-item">
+                        <div class="command-syntax">/skills</div>
+                        <p>Открыть меню навыков для распределения очков прокачки.</p>
+                    </div>
+
+                    <div class="command-item">
+                        <div class="command-syntax">/spells</div>
+                        <p>Открыть меню заклинаний и магических способностей.</p>
+                    </div>
+
+                    <div class="command-item">
+                        <div class="command-syntax">/market</div>
+                        <p>Открыть рынок для покупки и продажи предметов.</p>
+                    </div>
+                </section>
+
+                <section id="economy" class="wiki-section">
+                    <h2>Экономическая система</h2>
+                    <p>На сервере действует развитая экономическая система с несколькими валютами:</p>
+
+                    <h3>Валюты</h3>
+                    <ul class="rule-list">
+                        <li><strong>Кредиты</strong> - основная валюта, получается за выполнение квестов и продажу предметов</li>
+                        <li><strong>Драконий жемчуг</strong> - редкая валюта, получается за победу над боссами</li>
+                        <li><strong>Магические кристаллы</strong> - валюта для покупки магических предметов</li>
+                    </ul>
+
+                    <h3>Торговля</h3>
+                    <p>Игроки могут торговать между собой или использовать центральный рынок:</p>
+                    <ul class="rule-list">
+                        <li>Личные торговые площадки на участках</li>
+                        <li>Центральный рынок в столице (/warp market)</li>
+                        <li>Аукцион редких предметов (проводится по выходным)</li>
+                    </ul>
+
+                    <h3>Профессии</h3>
+                    <p>Каждый игрок может освоить несколько профессий для заработка:</p>
+                    <ul class="rule-list">
+                        <li>Шахтер - добыча редких руд</li>
+                        <li>Фермер - выращивание сельскохозяйственных культур</li>
+                        <li>Охотник - добыча ресурсов с мобов</li>
+                        <li>Ремесленник - создание предметов и инструментов</li>
+                        <li>Рыбак - специализированная рыбалка</li>
+                    </ul>
+                </section>
+
+                <section id="ranks" class="wiki-section">
+                    <h2>Ранги и привилегии</h2>
+                    <p>На сервере существует система рангов, которые дают различные привилегии:</p>
+
+                    <table class="wiki-table">
+                        <thead>
+                            <tr>
+                                <th>Ранг</th>
+                                <th>Требования</th>
+                                <th>Привилегии</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Новичок</td>
+                                <td>Начальный ранг</td>
+                                <td>3 дома, базовые команды</td>
+                            </tr>
+                            <tr>
+                                <td>Искатель</td>
+                                <td>Достичь 20 уровня</td>
+                                <td>5 домов, доступ к аукциону</td>
+                            </tr>
+                            <tr>
+                                <td>Путешественник</td>
+                                <td>Достичь 40 уровня</td>
+                                <td>7 домов, дополнительные варпы</td>
+                            </tr>
+                            <tr>
+                                <td>Мастер</td>
+                                <td>Достичь 60 уровня</td>
+                                <td>10 домов, цветной ник в чате</td>
+                            </tr>
+                            <tr>
+                                <td>Легенда</td>
+                                <td>Достичь 80 уровня</td>
+                                <td>15 домов, доступ к эксклюзивным зонам</td>
+                            </tr>
+                            <tr>
+                                <td>Имперский</td>
+                                <td>Достичь 100 уровня</td>
+                                <td>20 домов, особые particles эффекты</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Донат-ранги</h3>
+                    <p>Также доступны специальные ранги за поддержку сервера:</p>
+                    <ul class="rule-list">
+                        <li><strong>Страж</strong> - дополнительные дома, приватные варпы</li>
+                        <li><strong>Хранитель</strong> - увеличенный лимит предметов на рынке</li>
+                        <li><strong>Архитектор</strong> - дополнительные права на строительство</li>
+                        <li><strong>Благодетель</strong> - все преимущества предыдущих рангов + эксклюзивные предметы</li>
+                    </ul>
+                </section>
+
+                <section id="worlds" class="wiki-section">
+                    <h2>Миры и измерения</h2>
+                    <p>На сервере доступны несколько миров с уникальными особенностями:</p>
+
+                    <h3>Основной мир</h3>
+                    <p>Стандартный мир с измененной генерацией, включающей биомы из мода Biomes O' Plenty.</p>
+
+                    <h3>Энд</h3>
+                    <p>Измерение Энда было значительно расширено и теперь содержит:</p>
+                    <ul class="rule-list">
+                        <li>Новые виды эндерменов</li>
+                        <li>Уникальные структуры</li>
+                        <li>Драконьи логова с улучшенными драконами</li>
+                        <li>Редкие ресурсы, недоступные в других мирах</li>
+                    </ul>
+
+                    <h3>Ад</h3>
+                    <p>Нетер также претерпел изменения:</p>
+                    <ul class="rule-list">
+                        <li>Новые крепости с уникальными боссами</li>
+                        <li>Вулканические биомы с особыми ресурсами</li>
+                        <li>Заброшенные рудники и тюрьмы</li>
+                    </ul>
+
+                    <h3>Карманные измерения</h3>
+                    <p>Доступны через порталы, найденные в основном мире:</p>
+                    <ul class="rule-list">
+                        <li>Сад Творения - измерение для строительства без ограничений</li>
+                        <li>Лес Грибов - уникальный биом с гигантскими грибами</li>
+                        <li>Кристальные пещеры - подземное измерение с кристаллическими образованиями</li>
+                    </ul>
+                </section>
+
+                <section id="quests" class="wiki-section">
+                    <h2>Квесты и события</h2>
+                    <p>На сервере регулярно проводятся квесты и события для игроков:</p>
+
+                    <h3>Ежедневные квесты</h3>
+                    <p>Доступны каждый день и дают небольшое количество награды:</p>
+                    <ul class="rule-list">
+                        <li>Добыть определенные ресурсы</li>
+                        <li>Победить конкретных мобов</li>
+                        <li>Вырастить сельскохозяйственные культуры</li>
+                        <li>Посетить определенные локации</li>
+                    </ul>
+
+                    <h3>Еженедельные квесты</h3>
+                    <p>Более сложные задания с улучшенными наградами:</p>
+                    <ul class="rule-list">
+                        <li>Исследовать новые территории</li>
+                        <li>Победить боссов</li>
+                        <li>Создать сложные механизмы или предметы</li>
+                        <li>Выполнить серию связанных заданий</li>
+                    </ul>
+
+                    <h3>Сезонные события</h3>
+                    <p>Проводятся в соответствии с реальными праздниками:</p>
+                    <ul class="rule-list">
+                        <li>Хэллоуин - особые мобы и тематические подземелья</li>
+                        <li>Рождество - подарки и зимние активности</li>
+                        <li>Пасха - поиск яиц с сюрпризами</li>
+                        <li>Летнее солнцестояние - пляжные вечеринки и игры</li>
+                    </ul>
+
+                    <h3>PvP-турниры</h3>
+                    <p>Регулярные соревнования между игроками:</p>
+                    <ul class="rule-list">
+                        <li>Еженедельные арены - небольшие турниры с призами</li>
+                        <li>Месячные чемпионаты - крупные события с ценными наградами</li>
+                        <li>Командные сражения - групповые PvP-битвы</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer mtop-10">
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="logo">
+                    © 2025 Ketonal Project
+                </div>
+                <div class="disclaimer">
+                    Мы никак не связаны с Minecraft®, Mojang Studios® или Microsoft®.
+                </div>
+            </div>
+            <div class="social-buttons">
+                <a class="social-btn discord-btn" href="https://discord.gg/YtrczGpanH" target="_blank">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"/>
+                    </svg>
+                </a>
+
+                <a class="social-btn youtube-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        window.addEventListener('scroll', function () {
+            const scrollPosition = window.scrollY;
+            const video = document.querySelector('.background-video');
+            const blurIntensity = scrollPosition >= 500 ? 16 : (scrollPosition / 500 * 16);
+            video.style.filter = `blur(${blurIntensity}px)`;
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const wikiSections = document.querySelectorAll('.wiki-section');
+            const wikiNavLinks = document.querySelectorAll('.wiki-nav-link');
+
+            function activateNavLink() {
+                let currentSection = '';
+
+                wikiSections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+
+                    if (pageYOffset >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                wikiNavLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + currentSection) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            wikiNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            window.addEventListener('scroll', activateNavLink);
+
+            activateNavLink();
+
+            document.getElementById('themeToggle').addEventListener('click', function () {
+                document.body.classList.toggle('light-theme');
+                const icon = this.querySelector('i');
+
+                if (document.body.classList.contains('light-theme')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+        });
+    </script>
+    </div>
+</body>
+</html>
